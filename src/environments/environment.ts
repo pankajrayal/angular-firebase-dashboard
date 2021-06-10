@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyDIFag9notU9g7LgXafIYT2pmgjCNEjpd8',
+    authDomain: 'angular-firebase-dashboa-7dc92.firebaseapp.com',
+    projectId: 'angular-firebase-dashboa-7dc92',
+    storageBucket: 'angular-firebase-dashboa-7dc92.appspot.com',
+    messagingSenderId: '409077170152',
+    appId: '1:409077170152:web:4f67aceb2f67be167c6e5d',
+  },
 };
 
 /*

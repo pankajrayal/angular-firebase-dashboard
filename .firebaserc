@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angular-firebase-dashboa-7dc92": {
+      "hosting": {
+        "angular-firebase-dashboard": [
+          "angular-firebase-dashboa-7dc92"
+        ]
+      }
+    }
+  }
+}
