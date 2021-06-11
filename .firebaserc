@@ -7,5 +7,8 @@
         ]
       }
     }
+  },
+  "projects": {
+    "default": "angular-firebase-dashboa-7dc92"
   }
 }

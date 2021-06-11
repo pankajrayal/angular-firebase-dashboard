@@ -1,5 +1,59 @@
-<div *ngIf="afAuth.user | async as user">
-    <p>Name: {{user.displayName}}</p>
-    <p>Email: {{user.email}}</p>
-    <p>ID: {{user.uid}}</p>
+<!-- <div *ngIf="item |async as userProfile">
+    <p>{{userProfile | json}}</p>
+</div> -->
+<div class="card mt-2" *ngIf="item | async as userProfile">
+    <div class="card-header">
+        User Profile
+    </div>
+    <div class="card-body">
+        <form #profileForm="ngForm" (submit)="onSubmit(profileForm)" [class.loading]="loading">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" name="name" placeholder="Name" [ngModel]="userProfile.name">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="email" placeholder="email" [ngModel]="userProfile.email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" name="address" placeholder="Address" [ngModel]="userProfile.address">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" name="city" placeholder="City" [ngModel]="userProfile.city">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="state">State</label>
+                    <input type="text" class="form-control" name="state" placeholder="State" [ngModel]="userProfile.state">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="zip">Zip</label>
+                    <input type="text" class="form-control" name="zip" placeholder="Zip" [ngModel]="userProfile.zip">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="phone">Phone</label>
+                    <input type="text" class="form-control" name="phone" placeholder="Phone" [ngModel]="userProfile.phone">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="specialty">Specialty</label>
+                    <select class="form-control" name="specialty" [ngModel]="userProfile.specialty">
+                        <option value="field agent">Field Agent</option>
+                        <option value="covert operations">Covert Operations</option>
+                        <option value="intelligence officer">Intelligence Officer</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="ip">IP</label>
+                    <input type="text" class="form-control" name="ip" placeholder="IP" [ngModel]="userProfile.ip">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
 </div>
