@@ -3,8 +3,11 @@
         <div class="card">
             <div class="card-header">Login</div>
             <div class="card-body">
+                <div class="alert alert-danger" *ngIf="error">
+                    {{error}}
+                </div>
                 <form #loginForm="ngForm" (submit)="onSubmit(loginForm)" [class.loading]="loading">
-                    <div class="form-row">
+                    <div class="form-row" *ngIf="isSignUp">
                         <div class="form-group col-md-6">
                             <label for="firstName">First Name</label>
                             <input type="text" class="form-control" name="firstName" placeholder="First Name" ngModel>
@@ -22,7 +25,14 @@
                         <label for="password">Password</label>
                         <input type="password" class="form-control" name="password" placeholder="Password" ngModel>
                     </div>
-                    <button type="submit" class="btn btn-primary">Sign in</button>
+                    <!-- <button type="submit" class="btn btn-primary">Sign in</button> -->
+                    <button type="submit" class="btn btn-primary">{{ action | uppercase }}</button>
+                    <span *ngIf="isLogin"> or
+                        <a href="#" (click)="action = 'signup'" class="btn btn-secondary">Signup</a>
+                    </span>
+                    <span *ngIf="isSignUp"> or
+                        <a href="#" (click)="action = 'login'" class="btn btn-secondary">Login</a>
+                    </span>
                 </form>
             </div>
         </div>
