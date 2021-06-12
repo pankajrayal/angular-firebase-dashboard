@@ -5,6 +5,7 @@ var serviceAccount = require("./angular-firebase-dashboa-7dc92-firebase-adminsdk
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://angular-firebase-dashboa-7dc92.firebaseio.com"
 });
 
 admin

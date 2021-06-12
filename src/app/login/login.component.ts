@@ -45,7 +45,9 @@ export class LoginComponent implements OnInit {
 
       const uid = resp.user?.uid;
       // localStorage.setItem('user', JSON.stringify(resp.user));
-      this.router.navigate([`/profile/${uid}`]);
+      
+      // this.router.navigate([`/profile/${uid}`]);
+      this.auth.routeOnLogin();
     } catch (error) {
       localStorage.setItem('user', '');
       console.log(error);

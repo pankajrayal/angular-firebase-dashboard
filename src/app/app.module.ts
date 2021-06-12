@@ -12,9 +12,10 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ProfileComponent],
+  declarations: [AppComponent, LoginComponent, ProfileComponent, UsersComponent],
   imports: [
     BrowserModule,
     FormsModule,

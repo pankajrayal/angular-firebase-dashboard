@@ -2,14 +2,18 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { UserProfile } from '../models/user-profile.model';
-import { first } from "rxjs/operators";
+import { first } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private router: Router, private afAuth: AngularFireAuth, private afs: AngularFirestore) {}
+  constructor(
+    private router: Router,
+    private afAuth: AngularFireAuth,
+    private afs: AngularFirestore
+  ) {}
 
   async login(email: string, password: string) {
     var result = await this.afAuth.signInWithEmailAndPassword(email, password);
@@ -57,5 +61,16 @@ export class AuthService {
 
   updateUserDocument(userProfile: UserProfile) {
     return this.afs.doc(`users/${userProfile.uid}`).update(userProfile);
+  }
+
+  async routeOnLogin() {
+    const user = this.afAuth.currentUser;
+    const token = await (await user).getIdTokenResult();
+
+    if (token.claims.admin) {
+      this.router.navigate(['/users']);
+    } else {
+      this.router.navigate([`/profile/${(await user).uid}`]);
+    }
   }
 }
