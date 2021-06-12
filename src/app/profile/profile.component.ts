@@ -43,9 +43,6 @@ export class ProfileComponent implements OnInit {
   }
 
   async ngOnInit() {
-    // this.itemDoc = this.afs.doc<UserProfile>(
-    //   `users/${(await this.afAuth.currentUser).uid}`
-    // );
     this.itemDoc = this.afs.doc<UserProfile>(
       `users/${this.uid}`
     );

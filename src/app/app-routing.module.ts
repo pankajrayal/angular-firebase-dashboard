@@ -61,14 +61,12 @@ const routes: Routes = [
     path: '',
     component: LoginComponent,
     canActivate: [AngularFireAuthGuard],
-    // data: { authGuardPipe: redirectLoggedInToProfile },
     data: { authGuardPipe: redirectLoggedInToProfileOrUsers },
   },
   {
     path: 'profile/:id',
     component: ProfileComponent,
     canActivate: [AngularFireAuthGuard],
-    // data: { authGuardPipe: onlyAllowSelf },
     data: { authGuardPipe: allowOnlySelfOrAdmin },
   },
   {
