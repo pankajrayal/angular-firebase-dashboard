@@ -39,11 +39,15 @@ export class ProfileComponent implements OnInit {
     this.downloadUrl = this.afStorage
       .ref(`users/${this.uid}/profile-image`)
       .getDownloadURL();
+      console.log(this.downloadUrl);
   }
 
   async ngOnInit() {
+    // this.itemDoc = this.afs.doc<UserProfile>(
+    //   `users/${(await this.afAuth.currentUser).uid}`
+    // );
     this.itemDoc = this.afs.doc<UserProfile>(
-      `users/${(await this.afAuth.currentUser).uid}`
+      `users/${this.uid}`
     );
 
     this.item = this.itemDoc.valueChanges();
